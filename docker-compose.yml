@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  db:
+    build: ./db
+    container_name: tech_db
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/csv:/var/lib/mysql-files
+      - ./db/conf:/etc/mysql/conf.d
+    ports:
+      - 3306:3306
+
+  ap:
+    build: ./ap
+    container_name: tech_ap
+    ports:
+      - 1323:1323
+    links:
+      - db

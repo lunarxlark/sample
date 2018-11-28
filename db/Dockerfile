@@ -1,0 +1,7 @@
+FROM mysql:5.7.24
+
+ENV MYSQL_ROOT_PASSWORD password
+ENV MYSQL_DATABASE tech_link
+ENV MYSQL_USER tech_admin
+ENV MYSQL_PASSWORD password
+ENV TZ Asia/Tokyo
